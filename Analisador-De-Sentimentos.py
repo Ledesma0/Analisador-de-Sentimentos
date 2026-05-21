@@ -33,4 +33,26 @@ palavras_negativas = [
     "preocupado", "ansioso", "difícil", "problema", "mal", "infeliz"
 ]
 
+###############################################################################################################################################################################################################
+""" A Função Limpadora Serve para remover pontuações e converter tudo para minúsculas.
+EX: 
+Entrada: Olá, MUNDOOOOO
+A função retorna: olá mundooooo
+"""
+# Parte 1 - Função Limpadora
 
+def limpar_texto(texto):
+
+    # Listas de pontuações que serão removidas:
+    pontuacoes = ".,!?;:()-\"'…"
+    
+    # Convertendo texto para minúsculas:
+    texto_limpo = texto.lower()
+
+    # Removendo as pontuações do texto:
+    for pontuacao in pontuacoes:
+        texto_limpo = texto_limpo.replace(pontuacao, "")
+
+    return texto_limpo
+
+###############################################################################################################################################################################################################
