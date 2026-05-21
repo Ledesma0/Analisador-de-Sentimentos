@@ -9,5 +9,28 @@ Leonardo Ledesma dos Santos
 Leonardo Silva Nobre dos Santos
 Lúcio Eduardo Bueno Abreu Viana
 Bernardo Machado Soares
-
 """
+
+#_____ INFORMAÇÕES _____#
+
+# Linhas Para formatação 
+LINHAS_FORMATACAO = 100
+LINHAS_FORMATACAO_DUPLA = 50
+
+# Listas das Palavras
+
+palavras_positivas = [
+    "feliz", "alegre", "ótimo", "excelente", "maravilhoso", "bom", "amor",
+    "adorar", "incrível", "fantástico", "perfeito", "legal", "bacana",
+    "sucesso", "vitória", "paz", "amizade", "sorrir", "esperança", "lindo",
+    "bonito", "agradável", "divertido", "animado", "satisfeito", "grato",
+]
+
+palavras_negativas = [
+    "triste", "ruim", "péssimo", "horrível", "terrível", "ódio", "odiar",
+    "chorar", "fracasso", "derrota", "medo", "raiva", "feio", "chato",
+    "desagradável", "entediado", "frustrado", "decepcionado", "cansado",
+    "preocupado", "ansioso", "difícil", "problema", "mal", "infeliz"
+]
+
+
