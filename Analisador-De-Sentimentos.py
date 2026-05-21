@@ -34,7 +34,8 @@ palavras_negativas = [
 ]
 
 ###############################################################################################################################################################################################################
-""" A Função Limpadora Serve para remover pontuações e converter tudo para minúsculas.
+""" 
+A Função Limpadora Serve para remover pontuações e converter tudo para minúsculas.
 EX: 
 Entrada: Olá, MUNDOOOOO
 A função retorna: olá mundooooo
@@ -93,3 +94,61 @@ def analisar_sentimentos(frase):
             palavras_negativas_encontradas.append(palavra) # Adiciona a palavra negativa encontrada na lista de palavras negativas encontradas.
 
     return contador_negativo, contador_positivo, palavras_negativas_encontradas, palavras_positivas_encontradas
+
+###############################################################################################################################################################################################################
+"""
+A Função adicionar serve para o usuário adicione novas palavras nas listas.
+"""
+# Parte 3 - Função para adicionar novas palavras.
+
+def adicionar_palavras():
+    print("\n" + "=" * LINHAS_FORMATACAO)
+    print("ADICIONAR NOVA PALAVRA")
+
+    # Mensagem para usuário digitar a nova palavra:
+    nova_palavra = input("Digite a nova palavra: ").strip().lower()
+
+    # Verifica e informa se a nova palavra já não está na lista de palavras positivas:
+    if nova_palavra in palavras_positivas:
+        print(f"👍  A palavra '{nova_palavra}' já está na Lista de POSITIVAS!")
+        return
+    
+    # Verifica e informa se a nova palavra já não está na lista de palavras negativas:
+    elif nova_palavra in palavras_negativas:
+        print(f"👎  A palavra '{nova_palavra}' já está na Lista de NEGATIVAS!")
+        return
+    
+    # Informar se a nova palavra é Negativa ou Positiva:
+    print("\nEsta palavra é: ")
+    print("1️⃣ Positiva")
+    print("2️⃣ Negativa")
+
+    escolha = input("Digite sua escolha: ")
+
+    match escolha:
+        case "1":
+            palavras_positivas.append(nova_palavra) # Adiciona a palavra na lista de palavras positivas.
+            print(f"A palavra {nova_palavra} foi adicionada a lista de palavras positivas.")
+        case "2":
+            palavras_negativas.append(nova_palavra) # Adicona a palavra na lista de palavras negativas.
+            print(f"A palavra {nova_palavra} foi adicionada a lista dee palavras negativas")
+
+        case _:
+            print(f"Opção inválida. A palavra {nova_palavra} não foi adicionada á nenhuma das listas.") # Tratamento de escolha errada.
+
+###############################################################################################################################################################################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
