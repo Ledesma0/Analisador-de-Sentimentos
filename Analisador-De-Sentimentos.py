@@ -56,3 +56,40 @@ def limpar_texto(texto):
     return texto_limpo
 
 ###############################################################################################################################################################################################################
+"""
+A Função Analisadora de Sentimentos compara o texto do usuário com as listas de palavras postivas e negativas.
+Ela utiliza dois contadores para reconhecer a quantidade de palavras negativas e/ou positivas e assim definir se o texto é positivo ou negtivo.
+"""
+
+# Parte 2 - Função Analisadora de Sentimentos
+
+def analisar_sentimentos(frase):
+    
+    # Chama função anterior para realizar o tratamento:
+    frase_limpa = limpar_texto(frase)
+
+    # Separando o texto em palavras para comparação:
+    palavras = frase_limpa.split()
+
+    # Contadores de palavras:
+    contador_negativo = 0
+    contador_positivo = 0
+
+    # Listas para Guardar as palavras que foram encontradas:
+    palavras_positivas_encontradas = []
+    palavras_negativas_encontradas = []
+
+    # Verificando cada palavra no texto:
+
+    # Verificando palavras Positivas:
+    for palavra in palavras: # Estrutura de repetição para verificar todas as palavras do texto inserido pelo usuário.
+        if palavra in palavras_positivas: # Procura palavras positivas no texto separado.
+            contador_positivo += 1 # Adiciona 1 ao contador das palavras positivas
+            palavras_positivas_encontradas.append(palavra) # Adiiona a palavra positiva encontrada na lista de palavras positivas encontradas.
+        
+        # Verificando palavras Negativas:
+        elif palavra in palavras_negativas: # Procura palavras negativas no texto separado.
+            contador_negativo += 1 # Adiciona 1 ao contador ded palavras negativas
+            palavras_negativas_encontradas.append(palavra) # Adiciona a palavra negativa encontrada na lista de palavras negativas encontradas.
+
+    return contador_negativo, contador_positivo, palavras_negativas_encontradas, palavras_positivas_encontradas
