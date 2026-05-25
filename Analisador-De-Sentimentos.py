@@ -137,6 +137,41 @@ def adicionar_palavras():
             print(f"Opção inválida. A palavra {nova_palavra} não foi adicionada á nenhuma das listas.") # Tratamento de escolha errada.
 
 ###############################################################################################################################################################################################################
+"""
+Função Exibir os resultados determina o sentimento geral da frase.
+"""
+
+# Parte 4 - Função para mostrar os resultados
+
+def exibir_resultados(frase, pos_count, neg_count, pos_list, neg_list):
+
+    print("\n" + "=" * LINHAS_FORMATACAO)
+    print("RESULTADO DA ANÁLISE")
+    print(f"Frase analisada: \"{frase}\"")
+
+    # Mostrar contadores
+    print(f"📉 Palavras positivas encontradas: {pos_count}")
+    print(f"📈 Palavras negativas encontradas: {neg_count}")
+
+    # Mostrar as palavras identificadas
+    if pos_list:
+        print(f"👍 Positivas: {', '.join(pos_list)}")
+
+    if neg_list:
+        print(f"👎 Negativas: {', '.join(neg_list)}")
+
+    # Determinar o sentimento geral
+    print("-" * LINHAS_FORMATACAO)
+
+    if pos_count > neg_count:
+        print("😊 SENTIMENTO: POSITIVO")
+    elif neg_count > pos_count:
+        print("😞 SENTIMENTO: NEGATIVO")
+    else:
+        print("😐 SENTIMENTO: NEUTRO")
+
+###############################################################################################################################################################################################################
+
 
 
 
