@@ -150,8 +150,8 @@ def exibir_resultados(frase, pos_count, neg_count, pos_list, neg_list):
     print(f"Frase analisada: \"{frase}\"")
 
     # Mostrar contadores
-    print(f"📉 Palavras positivas encontradas: {pos_count}")
-    print(f"📈 Palavras negativas encontradas: {neg_count}")
+    print(f"📈 Palavras positivas encontradas: {pos_count}")
+    print(f"📉 Palavras negativas encontradas: {neg_count}")
 
     # Mostrar as palavras identificadas
     if pos_list:
@@ -171,6 +171,92 @@ def exibir_resultados(frase, pos_count, neg_count, pos_list, neg_list):
         print("😐 SENTIMENTO: NEUTRO")
 
 ###############################################################################################################################################################################################################
+"""
+Menu de opções - Exibe todas as funcionalidades do Analisador
+"""
+
+def menu():
+
+    print("ANALISADOR DE SENTIMENTOS ❤️")
+
+    # Variável para controlar o loop do menu    
+    continuar = True
+
+    # Loop
+    while continuar:
+        print("\n" + "=" * LINHAS_FORMATACAO)
+        print("MENU PRINCIPAL")
+        print("1️⃣ Analisar uma frase")
+        print("2️⃣ Adicionar palavra ao dicionário")
+        print("3️⃣ Ver estatísticas completas do dicionário")
+        print("4️⃣ Sair do Programa")
+
+        opcao = input("Escolha uma opção (1-4): ")
+
+    # Respostas 
+
+        match opcao:
+
+        # Analisar uma frase
+            case "1":
+                frase_usuario = input("\nDigite a frase que deseja analisar: ")
+
+                if not frase_usuario.strip(): # Verificar se a frase está vazia ou contém apenas espaços
+                    print("⚠️  A frase não pode ser vazia. Por favor, tente novamente.")
+                    continue # Volta ao inicio do Menu
+
+                # Chama a função de análise
+                neg, pos, neg_palavras, pos_palavras = analisar_sentimentos(frase_usuario)
+
+                # Mostra os resultados
+                exibir_resultados(frase_usuario, pos, neg, pos_palavras, neg_palavras)
+
+        # Adicionar nova palavra ao dicionário
+            case "2":
+                adicionar_palavras()
+
+        # Estatísticas completas do dicionário
+            case "3": 
+                print("\n" + "=" * LINHAS_FORMATACAO)
+                print("LISTA COMPLETA: \n")
+                print(f"Total de palavras no dicionário: {len(palavras_negativas) + len(palavras_positivas)}")
+
+                print("PALAVRAS POSITIVAS: \n")
+                for palavras in range(0, len(palavras_positivas), 10): # Loop para mostrar as palavras em grupos de 10, para não ficar uma lista ou linha gigante
+                    print(", ".join(palavra.upper() for palavra in palavras_positivas[palavras:palavras+10])) # Mostra as palavras em caixa alta e separadas por vírgula
+
+                print(f"Quantidade de Palavras Positivas: {len(palavras_positivas)}")
+
+                print("\n" + "-#" * LINHAS_FORMATACAO_DUPLA + "\n") # Linha de separação entre as palavras positivas e negativas
+                
+                print("PALAVRAS NEGATIVAS: \n")
+                for palavras in range(0, len(palavras_negativas), 10): # Loop para mostrar as palavras em grupos de 10, para não ficar uma lista ou linha gigante
+                    print(", ".join(palavra.upper() for palavra in palavras_negativas[palavras:palavras+10])) # Mostra as palavras em caixa alta e separadas por vírgula
+                print(f"Quantidade de Palavras Negativas: {len(palavras_negativas)}")
+            
+            case "4":
+            # Feedback
+                escala = " "
+                dicas = " "
+
+                print("Antes de ir, poderia nos informar: ")
+                escala = input("Em uma escala de 0 a 10, o quão satisfeito você ficou com o Analisador de Sentimentos: ")
+                dicas = input("Tem alguma sugestão sobre oque poderiamos melhorar ou adicionar? ")
+
+            # Sair do Analisador
+                print("Saindo do programa... Até mais! 👋")
+                continuar = False
+
+            # Tratamento de erro da escolha do menu
+            case _:
+                print("Opção inválida. Por favor, escolha uma opção entre 1 e 4.")
+
+# Executar o menu
+if __name__ == "__main__":
+    menu()
+
+
+
 
 
 
