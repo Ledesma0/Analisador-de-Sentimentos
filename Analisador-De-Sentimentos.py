@@ -244,7 +244,7 @@ def menu():
                 dicas = input("Tem alguma sugestão sobre oque poderíamos melhorar ou adicionar? ")
 
             # Sair do Analisador
-                print("Saindo do programa... Até mais! 👋")
+                print("Saindo do programa... Até mais! 👋 Volte Sempre.")
                 continuar = False
 
             # Tratamento de erro da escolha do menu
