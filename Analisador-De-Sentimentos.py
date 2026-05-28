@@ -236,11 +236,11 @@ def menu():
 
             case "4":
             # Feedback
-                escala = " "
-                dicas = " "
+                nota = " "
+                dicas = []
 
                 print("Antes de ir, poderia nos informar o seu feedback: " )
-                escala = input("Em uma escala de 0 a 10, o quão satisfeito você ficou com o Analisador de Sentimentos: ")
+                nota = input("Em uma escala de 0 a 10, o quão satisfeito você ficou com o Analisador de Sentimentos: ")
                 dicas = input("Tem alguma sugestão sobre oque poderíamos melhorar ou adicionar? ")
 
             # Sair do Analisador
